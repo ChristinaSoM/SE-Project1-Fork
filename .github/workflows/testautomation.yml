@@ -103,7 +103,15 @@ jobs:
         run: |
           newman run postman/collections/regression_TF1-05.postman_collection.json \
             -e postman/environments/test_environment.postman_environment.json
+          newman run postman/collections/regression_TF2-01.postman_collection.json \
+            -e postman/environments/test_environment.postman_environment.json
+          newman run postman/collections/regression_TF5-03.postman_collection.json \
+            -e postman/environments/test_environment.postman_environment.json
 
       # --- UI REGRESSION TESTS ---
       - name: Run Selenium Regression Tests
         run: pytest -s tests/ui/test_login_regression.py
+      - name: Run Selenium Regression Tests
+        run: pytest -s tests/ui/test_booking.py
+      - name: Run Selenium Regression Tests
+        run: pytest -s tests/ui/test_return_car.py
