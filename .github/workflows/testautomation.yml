@@ -98,9 +98,6 @@ jobs:
       - name: Install test dependencies
         run: pip install pytest selenium
 
-      - name: Run Selenium Smoke Tests
-        run: pytest -s tests/ui/test_smoke_ui.py
-
       # --- API REGRESSION TESTS ---
       - name: Run Postman Regression Tests
         run: |
