@@ -24,6 +24,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Create .env file from GitHub secrets
+        working-directory: backend
+        run: |
+          echo "COGNITO_USER_POOL_ID=${{ secrets.COGNITO_USER_POOL_ID }}" >> .env
+          echo "COGNITO_CLIENT_ID=${{ secrets.COGNITO_CLIENT_ID }}" >> .env
+          echo "COGNITO_REGION=${{ secrets.COGNITO_REGION }}" >> .env
+
       - name: Start backend server
         working-directory: backend
         run: |
