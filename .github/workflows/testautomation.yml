@@ -92,8 +92,11 @@ jobs:
             -e postman/environments/test_environment.postman_environment.json
 
       # --- UI SMOKE TESTS ---
-      - name: Install Selenium requirements
-        run: pip install -r tests/requirements.txt
+      - name: Install Selenium
+        run: pip install selenium
+
+      - name: Install test dependencies
+        run: pip install pytest selenium
 
       - name: Run Selenium Smoke Tests
         run: pytest -s tests/ui/test_smoke_ui.py
